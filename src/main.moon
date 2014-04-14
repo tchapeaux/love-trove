@@ -6,6 +6,7 @@ export wScr, hScr
 wScr = love.window.getWidth
 hScr = love.window.getHeight
 
+kPAUSE = false
 
 love.load = ->
 
@@ -57,12 +58,13 @@ love.load = ->
     bgm_main\play()
 
     love.update = (dt) ->
-        for wall in wallSet\iter()
-            wall\update(dt)
-            if (wall.time > wall.lifeTime) then
-                wallSet\removeID(wall.id)
-        for player in playerSet\iter()
-            player\update(dt)
+        if not kPAUSE
+            for wall in wallSet\iter()
+                wall\update(dt)
+                if (wall.time > wall.lifeTime) then
+                    wallSet\removeID(wall.id)
+            for player in playerSet\iter()
+                player\update(dt)
 
     love.draw = ->
         for player in playerSet\iter()
@@ -90,6 +92,9 @@ love.load = ->
                 playerSet\find(2)\keypressed("down")
             when "q", "a"
                 playerSet\find(2)\keypressed("left")
+
+            when "p"
+                kPAUSE = not kPAUSE
 
             when "m"
                 useSound = not useSound
