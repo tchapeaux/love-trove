@@ -1,0 +1,4 @@
+*.lua~
+*.sublime-workspace
+gen_love/*
+res/BS_-_Air___BS_-_Remix__.mp3

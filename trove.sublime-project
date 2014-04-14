@@ -1,0 +1,12 @@
+{
+    "folders":
+    [
+        {
+            "follow_symlinks": true,
+            "path": "./",
+            "name": "TRÖVE"
+            // "file_exclude_patterns": [""],
+            // "folder_exclude_patterns": []
+        }
+    ]
+}
