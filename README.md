@@ -1,9 +1,14 @@
 TROVE
 -----
 
-Small game inspired by a course project and the TRON movie.
+Small two-players game inspired by the TRON movie.
 
 Written in [MoonScript](http://moonscript.org/) with the [LÖVE](http://love2d.org/) framework.
+
+# Controls
+
+* Player 1 (blue): ZSQD or ASWD
+* Player 2 (orange): UP/DOWN/LEFT/RIGHT arrows
 
 # Download
 
