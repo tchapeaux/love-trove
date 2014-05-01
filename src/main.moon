@@ -50,12 +50,11 @@ love.load = ->
         {255,255,255},
         -1)
 
-    playerSet\add(Player wScr() - (arenaOutSize + 10),
+    playerSet\add(AI_Player wScr() - (arenaOutSize + 10),
         hScr() - (arenaOutSize + 10),
         -1, 0,colorP1)
     playerSet\add(Player arenaOutSize + 10, arenaOutSize + 10, 1, 0, colorP2)
 
-    playerSet\add(AI_Player wScr() / 2, hScr() / 2, 0, 1, {255, 105, 180})
 
     bgm_main\play()
 
