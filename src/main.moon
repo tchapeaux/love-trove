@@ -1,6 +1,7 @@
 require("lib/lgm/lgm")
 require("wall")
 require("player")
+require("ai_player")
 
 export wScr, hScr
 wScr = love.window.getWidth
@@ -54,6 +55,7 @@ love.load = ->
         -1, 0,colorP1)
     playerSet\add(Player arenaOutSize + 10, arenaOutSize + 10, 1, 0, colorP2)
 
+    playerSet\add(AI_Player wScr() / 2, hScr() / 2, 0, 1, {255, 105, 180})
 
     bgm_main\play()
 
