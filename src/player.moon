@@ -59,21 +59,21 @@ class Player extends LGM.Entity
         if k == "up" and @dirY == 0
             @dirX = 0
             @dirY = -1
-            @dumpWall()
+            @hasTurned()
         if k == "right" and @dirX == 0
             @dirX = 1
             @dirY = 0
-            @dumpWall()
+            @hasTurned()
         if k == "left" and @dirX == 0
             @dirX = -1
             @dirY = 0
-            @dumpWall()
+            @hasTurned()
         if k == "down" and @dirY == 0
             @dirX = 0
             @dirY = 1
-            @dumpWall()
+            @hasTurned()
 
-    dumpWall: () =>
+    hasTurned: () =>
         newColor = {@color[1], @color[2], @color[3]}
         newWall = Wall(@lastWallX, @lastWallY, @x, @y, newColor, 0)
         wallSet\add(newWall)
