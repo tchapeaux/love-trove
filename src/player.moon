@@ -29,9 +29,8 @@ class Player extends LGM.Entity
 
         foundCollision = false
         moveSegment = LGM.Segment(LGM.Vector(oldX, oldY), LGM.Vector(@x, @y))
-        foundCollision = intersectsWall(moveSegment)
 
-        if not foundCollision
+        if not intersectsWall(moveSegment)
             @speed = math.min(maxSpeed, @speed + deltaSpeed * dt)
         else
             @score -= 1
