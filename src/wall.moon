@@ -2,7 +2,7 @@ require("lib/lgm/lgm")
 
 export ^
 
-wallLifeTime = 10 --s
+wallLifeTime = 3 --s -- low timer for debugging
 wallFadeOut = 2
 
 class Wall extends LGM.Entity
@@ -19,12 +19,18 @@ class Wall extends LGM.Entity
             @time += dt
 
     draw: =>
-        -- chose color
-        color = @color
+        newColor = {}
+        fadeFactor = 1
         if @time ~= -1 and @time > (wallLifeTime - wallFadeOut)
             fadeFactor = (wallLifeTime - @time) / wallFadeOut
-            color[i] *= fadeFactor for i=1,3
-        love.graphics.setColor(color)
+        table.insert(newColor, @color[i] * fadeFactor) for i=1,3
+        love.graphics.setColor(newColor)
         love.graphics.line(@x, @y, @x2, @y2)
 
 export wallSet = LGM.EntitySet()
+
+export intersectsWall = (segment) ->
+    for wall in wallSet\iter()
+        if segment\intersect(wall\as_segment(), False)
+            return true
+    return false

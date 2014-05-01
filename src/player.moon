@@ -29,11 +29,7 @@ class Player extends LGM.Entity
 
         foundCollision = false
         moveSegment = LGM.Segment(LGM.Vector(oldX, oldY), LGM.Vector(@x, @y))
-        -- collisions with walls
-        for wall in wallSet\iter()
-            if wall ~= @lastWall
-                if moveSegment\intersect(wall\as_segment(), False)
-                    foundCollision = wall\as_segment()
+        foundCollision = intersectsWall(moveSegment)
 
         if not foundCollision
             @speed = math.min(maxSpeed, @speed + deltaSpeed * dt)
@@ -70,7 +66,7 @@ class Player extends LGM.Entity
             @hasTurned()
 
     resetLastWall: =>
-        @lastWall = Wall(@x, @y, @x, @y, @color, 0)
+        @lastWall = Wall(@x, @y, @x, @y, @color, -1)
         wallSet\add(@lastWall)
         table.insert(@linkedWallsID, @lastWall.id)
 
