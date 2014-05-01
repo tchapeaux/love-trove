@@ -28,8 +28,6 @@ class Player extends LGM.Entity
         @lastWall.x2 = @x
         @lastWall.y2 = @y
 
-        print("player", @id, "lastWall", @lastWall\as_segment())
-
         foundCollision = false
         moveSegment = LGM.Segment(LGM.Vector(oldX, oldY), LGM.Vector(@x, @y))
         -- collisions with walls
