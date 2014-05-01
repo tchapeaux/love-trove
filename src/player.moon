@@ -14,9 +14,8 @@ class Player extends LGM.Entity
         @score = 0
         @speed = defaultSpeed
         @linkedWallsID = {}
-        @lastWall = Wall(x, y, x, y, @color, -1)
-        wallSet\add(@lastWall)
-        table.insert(@linkedWallsID, @lastWall.id)
+        @lastWall = None
+        @resetLastWall()
 
     update: (dt) =>
         oldX = @x
@@ -25,8 +24,8 @@ class Player extends LGM.Entity
         @x += @dirX * @speed * dt
         @y += @dirY * @speed * dt
 
-        @lastWall.x2 = @x
-        @lastWall.y2 = @y
+        @lastWall.x2 = @x - @dirX
+        @lastWall.y2 = @y - @dirY
 
         foundCollision = false
         moveSegment = LGM.Segment(LGM.Vector(oldX, oldY), LGM.Vector(@x, @y))
@@ -42,11 +41,11 @@ class Player extends LGM.Entity
             @score -= 1
             @x, @y = @basePosition[1], @basePosition[2]
             @dirX, @dirY = @baseDirection[1], @baseDirection[2]
-            @lastWallX, @lastWallY = @x, @y
             @speed = 0
             for id in *@linkedWallsID
                 wallSet\removeID(id)
             @linkedWallsID = {}
+            @resetLastWall()
 
     draw: =>
         love.graphics.setColor(@color)
@@ -70,14 +69,20 @@ class Player extends LGM.Entity
             @dirY = 1
             @hasTurned()
 
-    hasTurned: () =>
-        -- trigger last wall
-        -- (@lastWall is also referenced in global wallSet)
-        @lastWall.time = 0
-        -- create new last wall
+    resetLastWall: =>
         @lastWall = Wall(@x, @y, @x, @y, @color, 0)
         wallSet\add(@lastWall)
         table.insert(@linkedWallsID, @lastWall.id)
+
+    hasTurned: =>
+        -- finalize lastWall (in global wallSet)
+        @lastWall.time = 0
+        @lastWall.x2 = @x
+        @lastWall.y2 = @y
+
+        -- create new wall for the new direction
+        @resetLastWall()
+
         playSfxTurn()
         -- hotfix to not crash into its own wall
         @x += @dirX
