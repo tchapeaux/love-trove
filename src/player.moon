@@ -36,12 +36,6 @@ class Player extends LGM.Entity
         @x += @dirX * @speed * dt
         @y += @dirY * @speed * dt
 
-        -- update last wall
-        @lastWall.x2 = @x - @dirX
-        @lastWall.y2 = @y - @dirY
-        if @lastWall\length() > deltaWall
-            @resetLastWall()
-
         -- handle collisions
         foundCollision = false
         moveSegment = LGM.Segment(LGM.Vector(oldX, oldY), LGM.Vector(@x, @y))
@@ -55,6 +49,12 @@ class Player extends LGM.Entity
             @dirX, @dirY = @baseDirection[1], @baseDirection[2]
             @speed = 0
             @wallSet = WallSet()
+            @resetLastWall()
+
+        -- update last wall
+        @lastWall.x2 = @x
+        @lastWall.y2 = @y
+        if @lastWall\length() > deltaWall
             @resetLastWall()
 
         -- update wallset
