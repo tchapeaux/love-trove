@@ -7,8 +7,13 @@ Written in [MoonScript](http://moonscript.org/) with the [LÖVE](http://love2d.o
 
 # Controls
 
-* Player 1 (blue): ZSQD or ASWD
-* Player 2 (orange): UP/DOWN/LEFT/RIGHT arrows
+* In the menu
+    - LEFT/RIGHT arrows: select racer
+    - UP/DOWN arrows: select AI or player
+
+* In-game
+    - Racer 1 (blue): ZSQD or ASWD
+    - Racer 2 (orange): UP/DOWN/LEFT/RIGHT arrows
 
 # Download
 
