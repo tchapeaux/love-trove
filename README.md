@@ -15,6 +15,11 @@ Written in [MoonScript](http://moonscript.org/) with the [LÖVE](http://love2d.o
     - Racer 1 (blue): ZSQD or ASWD
     - Racer 2 (orange): UP/DOWN/LEFT/RIGHT arrows
 
+# Screenshots
+
+![](screenshots/gameplay_2.png)
+![](screenshots/mainmenu.png)
+
 # Download
 
 Powered by [StackMachine](https://stackmachine.com/)
