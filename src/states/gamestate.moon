@@ -77,4 +77,6 @@ class GameState extends State
                 @useSound = not @useSound
                 curV = love.audio.getVolume()
                 love.audio.setVolume(1.0 - curV)
-
+            when "escape"
+                @bgm_main\stop()
+                stateStack\pop()

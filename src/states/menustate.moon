@@ -6,6 +6,8 @@ class MenuState extends State
         @titleFont = love.graphics.newFont("res/font/moonhouse.ttf", 150)
         @textFont = love.graphics.newFont("res/font/REZ.ttf", 25)
         @playerSelected = 1
+        @bgm = love.audio.newSource("res/audio/bgm_menu.ogg", "stream")
+        @bgm\play()
 
     draw: =>
         -- logo
@@ -44,6 +46,8 @@ class MenuState extends State
 
 
     update: (dt) =>
+        if @bgm\isStopped()
+            @bgm\play()
 
     keypressed: (k) =>
         switch k
@@ -52,4 +56,7 @@ class MenuState extends State
             when "up", "down"
                 @isPlayer_AI[@playerSelected] = not @isPlayer_AI[@playerSelected]
             when "return"
+                @bgm\stop()
                 stateStack\push(GameState(@isPlayer_AI[1], @isPlayer_AI[2], firstLevel))
+            when "escape"
+                love.event.push("quit")

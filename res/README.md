@@ -7,6 +7,10 @@ Licensing info
     * http://www.jamendo.com/fr/track/635296/air-bs-remix
     * License: CC-BY-SA 3.0
     * Modifications: shortened and converted to .ogg
+2. Funny from the album MUSIC 4 ALL by C.J.Rogers
+    * http://www.jamendo.com/fr/track/84737/funny
+    * License: CC BY-NC-SA 3.0
+    * Modification: shortened and converted to .ogg
 
 # SFX
 

@@ -29,9 +29,5 @@ love.draw = ->
     curState\draw()
 
 love.keypressed = (k) ->
-    switch k
-        when "escape"
-            love.event.push("quit")
-        else
-            curState = stateStack\peek()
-            curState\keypressed(k)
+        curState = stateStack\peek()
+        curState\keypressed(k)
