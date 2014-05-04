@@ -4,7 +4,7 @@ love.conf = (t) ->
     t.console = false
 
     t.window.title = "TRÖVE"
-    t.window.icon = "res/logo.png"
+    t.window.icon = "res/img/logo.png"
     t.window.width = 800
     t.window.height = 600
     t.window.borderless = false

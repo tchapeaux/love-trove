@@ -21,7 +21,7 @@ class Player extends LGM.Entity
         @lastWall = None
         @resetLastWall()
         @sfx_turn = {}
-        baseSource = love.audio.newSource("res/sfx_turn.wav", "static")
+        baseSource = love.audio.newSource("res/audio/sfx_turn.wav", "static")
         for i=1,10
             s = baseSource\clone()
             s\setVolume(0.5)

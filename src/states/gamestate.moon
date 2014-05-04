@@ -10,7 +10,7 @@ class GameState extends State
         colorP2 = {91,205,229}
         @useSound = true
 
-        @bgm_main = love.audio.newSource("res/bgm_main.ogg", "stream")
+        @bgm_main = love.audio.newSource("res/audio/bgm_main.ogg", "stream")
         @bgm_main\setVolume(0.5)
 
         @playerSet = LGM.EntitySet()
