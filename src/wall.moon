@@ -3,7 +3,7 @@ require("lib/lgm/lgm")
 export ^
 
 wallLifeTime = 5 --s
-wallFadeOut = 2
+wallFadeOut = .5
 
 class Wall extends LGM.Entity
     new: (x, y, @x2, @y2, @color, @time)=>
