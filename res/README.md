@@ -23,6 +23,8 @@ Licensing info
 
 1. Moonhouse by NimaVisual
     * http://www.behance.net/gallery/11212147/moonhouse-free-font
+2. Rezland par Fraser Davidson
+    * http://www.dafont.com/fr/rezland.font
 2. Roboto by Google
     * http://www.google.com/fonts/specimen/Roboto+Condensed
     * License: Apache License, version 2.0
