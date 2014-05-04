@@ -5,9 +5,8 @@ export ^
 
 class GameState extends State
     new: (isP1_AI, isP2_AI, @level) =>
+        @font = love.graphics.newFont("res/font/roboto/RobotoCondensed-Regular.ttf", 15)
         @kPAUSE = false
-        colorP1 = {227,138,23}
-        colorP2 = {91,205,229}
         @useSound = true
 
         @bgm_main = love.audio.newSource("res/audio/bgm_main.ogg", "stream")
@@ -46,6 +45,7 @@ class GameState extends State
             @level.wallSet\update(dt)
 
     draw: =>
+        love.graphics.setFont(@font)
         for player in @playerSet\iter()
             player\draw()
             love.graphics.setColor(player.color)
@@ -57,7 +57,7 @@ class GameState extends State
         -- music icon ♪
         if @useSound
             love.graphics.setColor(255,255,255)
-            love.graphics.print("m to mute", 1, 1)
+            love.graphics.printf("m to mute", 10, 10, wScr() - 10, "right")
 
     keypressed: (k) =>
         switch k
@@ -77,5 +77,4 @@ class GameState extends State
                 @useSound = not @useSound
                 curV = love.audio.getVolume()
                 love.audio.setVolume(1.0 - curV)
-            when "escape"
-                love.event.push("quit")
+

@@ -63,7 +63,7 @@ class Player extends LGM.Entity
     draw: =>
         love.graphics.setColor(@color)
         love.graphics.circle("fill", @x, @y, 5)
-        love.graphics.printf(@name, @x - wScr() / 2, @y - 20, wScr(), "center")
+        -- love.graphics.printf(@name, @x - wScr() / 2, @y - 30, wScr(), "center")
 
         for wall in @wallSet\iter()
             wall\draw()

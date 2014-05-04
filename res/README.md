@@ -14,3 +14,11 @@ Licensing info
     * https://www.freesound.org/people/Robinhood76/sounds/101432/
     * License: CC BY-NC 3.0
     * Modifications: None
+
+# Font
+
+1. Moonhouse by NimaVisual
+    * http://www.behance.net/gallery/11212147/moonhouse-free-font
+2. Roboto by Google
+    * http://www.google.com/fonts/specimen/Roboto+Condensed
+    * License: Apache License, version 2.0

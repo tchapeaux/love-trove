@@ -5,14 +5,19 @@ require("player")
 require("ai_player")
 require("states/statestack")
 require("states/gamestate")
+require("states/menustate")
 
 export wScr, hScr
 wScr = love.window.getWidth
 hScr = love.window.getHeight
 
+export colorP1 = {227,138,23}
+export colorP2 = {91,205,229}
+
 love.load = ->
     export stateStack = StateStack()
-    stateStack\push(GameState(true, false, firstLevel))
+    stateStack\push(MenuState())
+    -- stateStack\push(GameState(true, false, firstLevel))
 
 
 love.update = (dt) ->
@@ -24,5 +29,9 @@ love.draw = ->
     curState\draw()
 
 love.keypressed = (k) ->
-    curState = stateStack\peek()
-    curState\keypressed(k)
+    switch k
+        when "escape"
+            love.event.push("quit")
+        else
+            curState = stateStack\peek()
+            curState\keypressed(k)
